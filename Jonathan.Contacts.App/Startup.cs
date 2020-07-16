@@ -1,3 +1,5 @@
+using System.Reflection;
+
 using Jonathan.Contacts.App.Application;
 using Jonathan.Contacts.App.Infrastructure;
 
@@ -7,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Jonathan.Contacts.App
 {
@@ -28,7 +31,15 @@ namespace Jonathan.Contacts.App
 
             services.AddControllers();
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "Contact Api", Version = "v1" } ));
+            services.AddSwaggerGen(c => 
+            {
+                c.CustomOperationIds(apiDesc =>
+                {
+                    return apiDesc.TryGetMethodInfo(out MethodInfo methodInfo) ? methodInfo.Name : null;
+                });
+
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Contact Api", Version = "v1" } );
+            });
 
             services.AddMvcCore()
                 .AddApiExplorer();

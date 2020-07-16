@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Jonathan.Contacts.App.Api
 {
-    [Route("user")]
+    [Route("api/user")]
     public class UserController: Controller
     {
         private readonly IUserRepository UserRepository;
