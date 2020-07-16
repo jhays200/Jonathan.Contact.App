@@ -15,7 +15,7 @@ namespace Jonathan.Contacts.App.Api
         }
 
         [HttpGet]
-        public Page<Contact> GetContacts(int userId, int pageNumber = 10, int pageSize = 10)
+        public Page<Contact> GetContacts(int userId, int pageNumber = 1, int pageSize = 10)
         {
             return ContactRepository.FindContacts(userId, pageSize, pageNumber);
         }
