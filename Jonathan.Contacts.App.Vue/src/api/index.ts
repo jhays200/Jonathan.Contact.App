@@ -24,7 +24,7 @@ export class ContactClient {
      * @return Success
      */
     getContacts(userId: number | undefined, pageNumber: number | undefined, pageSize: number | undefined): Promise<ContactPage> {
-        let url_ = this.baseUrl + "/contact?";
+        let url_ = this.baseUrl + "/api/contact?";
         if (userId === null)
             throw new Error("The parameter 'userId' cannot be null.");
         else if (userId !== undefined)
@@ -84,7 +84,7 @@ export class ContactClient {
      * @return Success
      */
     createContact(id: number | undefined, firstName: string | null | undefined, lastName: string | null | undefined, phone: string | null | undefined, email: string | null | undefined, street: string | null | undefined, city: string | null | undefined, state: string | null | undefined, zipCode: string | null | undefined, userId: number | undefined, isActive: boolean | undefined): Promise<Contact> {
-        let url_ = this.baseUrl + "/contact?";
+        let url_ = this.baseUrl + "/api/contact?";
         if (id === null)
             throw new Error("The parameter 'id' cannot be null.");
         else if (id !== undefined)
@@ -160,7 +160,7 @@ export class ContactClient {
      * @return Success
      */
     updateContact(contactId: number, id: number | undefined, firstName: string | null | undefined, lastName: string | null | undefined, phone: string | null | undefined, email: string | null | undefined, street: string | null | undefined, city: string | null | undefined, state: string | null | undefined, zipCode: string | null | undefined, userId: number | undefined, isActive: boolean | undefined): Promise<void> {
-        let url_ = this.baseUrl + "/contact/{contactId}?";
+        let url_ = this.baseUrl + "/api/contact/{contactId}?";
         if (contactId === undefined || contactId === null)
             throw new Error("The parameter 'contactId' must be defined.");
         url_ = url_.replace("{contactId}", encodeURIComponent("" + contactId));
@@ -224,7 +224,7 @@ export class ContactClient {
      * @return Success
      */
     deleteContact(contactId: number): Promise<void> {
-        let url_ = this.baseUrl + "/contact/{contactId}";
+        let url_ = this.baseUrl + "/api/contact/{contactId}";
         if (contactId === undefined || contactId === null)
             throw new Error("The parameter 'contactId' must be defined.");
         url_ = url_.replace("{contactId}", encodeURIComponent("" + contactId));
@@ -271,7 +271,7 @@ export class UserClient {
      * @return Success
      */
     getUser(email: string | null): Promise<User> {
-        let url_ = this.baseUrl + "/user/{email}";
+        let url_ = this.baseUrl + "/api/user/{email}";
         if (email === undefined || email === null)
             throw new Error("The parameter 'email' must be defined.");
         url_ = url_.replace("{email}", encodeURIComponent("" + email));
