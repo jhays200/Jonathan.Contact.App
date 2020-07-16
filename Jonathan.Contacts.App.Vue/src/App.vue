@@ -5,7 +5,15 @@
       color="primary"
       dark
     >
-      <h2>Contact Editor Applicaiton</h2>
+      <v-toolbar-title>Contact Editor Applicaiton</v-toolbar-title>
+      <v-spacer />
+      
+      <v-toolbar-title>
+        <v-btn
+          href="http://localhost:5000/swagger"
+          flat
+          secondary>Swagger Page</v-btn>
+      </v-toolbar-title>
     </v-app-bar>
 
     <v-content>

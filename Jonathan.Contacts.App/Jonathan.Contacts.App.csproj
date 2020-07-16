@@ -4,6 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <PreBuildEvent>
+      <Exec
+        Command="npm install &amp;&amp; npm run build"
+        WorkingDirectory="../Jonathan.Contacts.App.Vue/" />
+    </PreBuildEvent>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="LiteDB" Version="5.0.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />

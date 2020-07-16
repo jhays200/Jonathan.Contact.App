@@ -57,6 +57,9 @@ namespace Jonathan.Contacts.App
 
             app.UseAuthorization();
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>

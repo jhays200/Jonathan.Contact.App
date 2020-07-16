@@ -33,3 +33,4 @@ msbuild.wrn
 
 #Ignore DB
 *.db
+Jonathan.Contacts.App/wwwroot
